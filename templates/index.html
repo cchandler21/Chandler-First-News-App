@@ -3,6 +3,29 @@
     <head></head>
     <body>
         <h1>Deaths during the L.A. riots</h1>
+        <table border=1 cellpadding=7>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Race</th>
+                <th>Age</th>
+                <th>Adress</th>
+                <th>Type</th>
+                <th>Gender</th>
+
+            </tr>
+            {% for obj in object_list %}
+            <tr>
+                <td>{{ obj.full_name }}</td>
+                <td>{{ obj.date }}</td>
+                <td>{{ obj.race }}</td>
+                <td>{{ obj.age }}</td>
+                <td>{{ obj.address }}</td>
+                <td>{{ obj.type }}</td>
+                <td>{{ obj.gender |upper }}</td>
+            </tr>
+            {% endfor %}
+        </table>
     </body>
 </html>
 
