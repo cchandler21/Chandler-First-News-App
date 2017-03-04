@@ -1,5 +1,6 @@
 #Import the CSV tool
 import csv
+from flask import abort
 #must have capital F flask- from the flask library, import the flask application
 from flask import Flask
 #This goes out to the flask library and gets the render template
@@ -40,7 +41,8 @@ def detail(row_id):
 #so now we are creating a for loop and have a logical test, == checks to see if two things are equal
 		if row['id'] == row_id:
 			return render_template(template, object= row)
-			
+		abort(404)
+
 
 
 
