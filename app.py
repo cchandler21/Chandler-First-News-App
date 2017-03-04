@@ -31,6 +31,19 @@ def index():
 #this is passing in what is in the template file into the render function- it will render it and then pass it back to us in the browser
 	return render_template(template, object_list=object_list)
 
+#connecting our browser to the detail page which will use the id as the variable that will hold which record to put on the website
+@app.route('/<row_id>/')
+def detail(row_id):
+	template = "detail.html"
+	object_list = get_csv()
+	for row in object_list:
+#so now we are creating a for loop and have a logical test, == checks to see if two things are equal
+		if row['id'] == row_id:
+			return render_template(template, object= row)
+			
+
+
+
 #If this script is run from the command line 
 if __name__ == "__main__":
 	#then start this app up
